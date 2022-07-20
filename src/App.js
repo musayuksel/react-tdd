@@ -1,5 +1,7 @@
+import NewMessageForm from "./components/NewMessageForm";
+
 function App() {
-  return null;
+  return <NewMessageForm />;
 }
 
 export default App;
