@@ -3,8 +3,12 @@ import userEvent from "@testing-library/user-event";
 import NewMessageForm from "./NewMessageForm";
 describe("<NewmessageForm />", () => {
   describe("clicking the send button", () => {
+    let sendHandler;
+
     async function sendMessage() {
-      render(<NewMessageForm />);
+      sendHandler = jest.fn().mockName("sendHandler");
+      render(<NewMessageForm onSend={sendHandler} />);
+
       await userEvent.type(screen.getByTestId("messageText"), "New message");
       userEvent.click(screen.getByTestId("sendButton"));
     }
@@ -12,6 +16,10 @@ describe("<NewmessageForm />", () => {
     it("clear the text field", async () => {
       await sendMessage();
       expect(screen.getByTestId("messageText").value).toEqual("");
+    });
+    it("calls the send handler", async () => {
+      await sendMessage();
+      expect(sendHandler).toHaveBeenCalledWith("New message");
     });
   });
 });

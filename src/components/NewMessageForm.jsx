@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-export default function NewMessageForm() {
+export default function NewMessageForm({ onSend }) {
   const [inputMessage, setInputMessage] = useState("");
   function handleSendButtonClick() {
-    console.log("send button clicked");
+    onSend(inputMessage);
     setInputMessage("");
   }
   return (
