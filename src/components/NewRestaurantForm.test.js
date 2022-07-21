@@ -5,13 +5,22 @@ describe("<NewRestaurantForm />", () => {
   describe("clicking the save button", () => {
     it("calls the onSave handler", async () => {
       const saveHandler = jest.fn().mockName("saveHandler");
-      render(<NewRestaurantForm saveHandler={saveHandler} />);
+      const setIsShowNewRestaurantForm = jest
+        .fn()
+        .mockName("setIsShowNewRestaurantForm");
+      render(
+        <NewRestaurantForm
+          saveHandler={saveHandler}
+          setIsShowNewRestaurantForm={setIsShowNewRestaurantForm}
+        />
+      );
       await userEvent.type(
         screen.getByTestId("newRestaurantName"),
         "Sushi Place2"
       );
       userEvent.click(screen.getByTestId("saveNewRestaurantButton"));
       expect(saveHandler).toHaveBeenCalledWith("Sushi Place2");
+      expect(true).toBe(true);
     });
   });
 });
