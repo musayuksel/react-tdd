@@ -1,4 +1,5 @@
 import { useState } from "react";
+import RestaurantListPage from "./components/RestaurantListPage";
 import Viewers from "./components/Viewers";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
       <Viewers viewer={viewer} />
+      <RestaurantListPage />
     </>
   );
 }
