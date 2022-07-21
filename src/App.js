@@ -1,6 +1,5 @@
 import { useState } from "react";
-import MessageList from "./components/MessageList";
-import NewMessageForm from "./components/NewMessageForm";
+import Viewers from "./components/Viewers";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -9,8 +8,7 @@ function App() {
   }
   return (
     <>
-      <NewMessageForm onSend={handleSend} />
-      <MessageList messages={messages} />
+      <Viewers viewer={"YUXEL"} />
     </>
   );
 }
