@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
-export default function NewRestaurantForm({ saveHandler }) {
+export default function NewRestaurantForm({
+  saveHandler,
+  setIsShowNewRestaurantForm,
+}) {
   const [restaurantName, setRestaurantName] = useState("");
   function changeHadler(event) {
     setRestaurantName(event.target.value);
@@ -8,11 +11,11 @@ export default function NewRestaurantForm({ saveHandler }) {
   function handleSubmit(event) {
     event.preventDefault();
     saveHandler(restaurantName);
-    console.log({ restaurantName });
+    setIsShowNewRestaurantForm(false);
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form data-testid="newRestaurantForm" onSubmit={handleSubmit}>
         <label>Name:</label>
         <input
           value={restaurantName}
