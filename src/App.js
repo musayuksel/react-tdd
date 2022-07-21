@@ -2,13 +2,10 @@ import { useState } from "react";
 import Viewers from "./components/Viewers";
 
 function App() {
-  const [messages, setMessages] = useState([]);
-  function handleSend(newMessage) {
-    setMessages([...messages, newMessage]);
-  }
+  const [viewer, setViewer] = useState("MMMMM");
   return (
     <>
-      <Viewers viewer={"YUXEL"} />
+      <Viewers viewer={viewer} />
     </>
   );
 }
