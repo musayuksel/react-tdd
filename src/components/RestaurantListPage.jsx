@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import NewRestaurantForm from "./NewRestaurantForm";
 import RestaurantList from "./RestaurantList";
+import "materialize-css";
+import "materialize-css/dist/css/materialize.min.css";
 
 export default function RestaurantListPage() {
   const [restaurants, setRestaurants] = useState([]);
@@ -13,16 +15,23 @@ export default function RestaurantListPage() {
   }
   return (
     <section>
-      {isShowNewRestaurantForm && (
+      {isShowNewRestaurantForm ? (
         <NewRestaurantForm
           saveHandler={saveHandler}
           setIsShowNewRestaurantForm={setIsShowNewRestaurantForm}
         />
+      ) : (
+        <>
+          <button
+            className="waves-effect waves-light btn"
+            onClick={showAddRestaurantForm}
+            data-testid="addRestaurantButton"
+          >
+            Add restaurant
+          </button>
+          <RestaurantList restaurants={restaurants} />
+        </>
       )}
-      <button onClick={showAddRestaurantForm} data-testid="addRestaurantButton">
-        Add restaurant
-      </button>
-      <RestaurantList restaurants={restaurants} />
     </section>
   );
 }
