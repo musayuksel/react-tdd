@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import "materialize-css";
+import "materialize-css/dist/css/materialize.min.css";
 export default function NewRestaurantForm({
   saveHandler,
   setIsShowNewRestaurantForm,
@@ -16,15 +17,23 @@ export default function NewRestaurantForm({
   return (
     <>
       <form data-testid="newRestaurantForm" onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input
-          value={restaurantName}
-          type="text"
-          name="name"
-          data-testid="newRestaurantName"
-          onChange={changeHadler}
-        />
-        <button onClick={handleSubmit} data-testid="saveNewRestaurantButton">
+        <div className="input-field">
+          <input
+            className="input-field"
+            id="restaurantName"
+            value={restaurantName}
+            type="text"
+            name="name"
+            data-testid="newRestaurantName"
+            onChange={changeHadler}
+          />
+          <label htmlFor="restaurantName">Name:</label>
+        </div>
+        <button
+          className="waves-effect waves-light btn"
+          onClick={handleSubmit}
+          data-testid="saveNewRestaurantButton"
+        >
           SAVE
         </button>
       </form>
