@@ -20,7 +20,7 @@ describe("<NewRestaurantForm />", () => {
       );
       userEvent.click(screen.getByTestId("saveNewRestaurantButton"));
       expect(saveHandler).toHaveBeenCalledWith("Sushi Place2");
-      expect(true).toBe(true);
+      // expect(true).toBe(true);
     });
   });
 });
