@@ -29,9 +29,9 @@ export default function RestaurantListPage() {
           >
             Add restaurant
           </button>
-          <RestaurantList restaurants={restaurants} />
         </>
       )}
+      <RestaurantList restaurants={restaurants} />
     </section>
   );
 }
