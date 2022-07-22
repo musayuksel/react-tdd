@@ -1,6 +1,4 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import NewRestaurantForm from "./NewRestaurantForm";
+import { render } from "@testing-library/react";
 import RestaurantList from "./RestaurantList";
 describe("<RestaurantList />", () => {
   describe("Should show restaurants list", () => {
