@@ -18,5 +18,13 @@ describe("<RestaurantList />", () => {
       const listItems = getAllByRole("listitem");
       expect(listItems[1].textContent).toEqual("restaurant1");
     });
+    it("should NOT show empty restaurants in the list", async () => {
+      const restaurants = ["restaurant1", "restaurant2", ""];
+      const { getAllByRole } = render(
+        <RestaurantList restaurants={restaurants} />
+      );
+      const listItems = getAllByRole("listitem");
+      expect(listItems).toHaveLength(3); //header is always there
+    });
   });
 });
