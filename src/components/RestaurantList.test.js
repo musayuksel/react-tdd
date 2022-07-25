@@ -16,7 +16,7 @@ describe("<RestaurantList />", () => {
         <RestaurantList restaurants={restaurants} />
       );
       const listItems = getAllByRole("listitem");
-      expect(listItems[1].textContent).toEqual("restaurant1");
+      expect(listItems[1].textContent.includes("restaurant1")).toBe(true);
     });
     it("should NOT show empty restaurants in the list", async () => {
       const restaurants = ["restaurant1", "restaurant2", ""];
