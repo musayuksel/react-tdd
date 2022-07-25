@@ -8,12 +8,8 @@ describe("<NewRestaurantForm />", () => {
       const setIsShowNewRestaurantForm = jest
         .fn()
         .mockName("setIsShowNewRestaurantForm");
-      render(
-        <NewRestaurantForm
-          saveHandler={saveHandler}
-          setIsShowNewRestaurantForm={setIsShowNewRestaurantForm}
-        />
-      );
+      render(<NewRestaurantForm saveHandler={saveHandler} />);
+      userEvent.click(screen.getByTestId("addRestaurantButton"));
       await userEvent.type(
         screen.getByTestId("newRestaurantName"),
         "Sushi Place2"
