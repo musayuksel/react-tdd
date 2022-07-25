@@ -6,31 +6,13 @@ import "materialize-css/dist/css/materialize.min.css";
 
 export default function RestaurantListPage() {
   const [restaurants, setRestaurants] = useState([]);
-  const [isShowNewRestaurantForm, setIsShowNewRestaurantForm] = useState(false);
-  function showAddRestaurantForm() {
-    setIsShowNewRestaurantForm(!isShowNewRestaurantForm);
-  }
+
   function saveHandler(name) {
     setRestaurants((prevRestaurants) => [...prevRestaurants, name]);
   }
   return (
     <section>
-      {isShowNewRestaurantForm ? (
-        <NewRestaurantForm
-          saveHandler={saveHandler}
-          setIsShowNewRestaurantForm={setIsShowNewRestaurantForm}
-        />
-      ) : (
-        <>
-          <button
-            className="waves-effect waves-light btn"
-            onClick={showAddRestaurantForm}
-            data-testid="addRestaurantButton"
-          >
-            Add restaurant
-          </button>
-        </>
-      )}
+      <NewRestaurantForm saveHandler={saveHandler} />
       <RestaurantList restaurants={restaurants} />
     </section>
   );
