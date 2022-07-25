@@ -1,13 +1,12 @@
 import React from "react";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
+import EachRestaurant from "./EachRestaurant";
 export default function RestaurantList({ restaurants }) {
   const restaurantsList = restaurants
     .filter((restaurant) => restaurant)
     .map((restaurant) => (
-      <li className="collection-item" key={restaurant}>
-        {restaurant}
-      </li>
+      <EachRestaurant restaurant={restaurant} key={restaurant} />
     ));
   return (
     <ul className="collection with-header">
