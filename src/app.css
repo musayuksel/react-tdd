@@ -1,0 +1,11 @@
+.restaurant-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.restaurant-list-item button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
