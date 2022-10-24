@@ -9,3 +9,9 @@ it('should render 12 items', () => {
   const items = screen.getAllByRole('listitem');
   expect(items).toHaveLength(numberItems);
 });
+
+it('should render title of first item', async () => {
+  render(<Grid items={data} />);
+  const title = await screen.findAllByAltText(data[0].title);
+  expect(title.length).toBeGreaterThan(0);
+});
